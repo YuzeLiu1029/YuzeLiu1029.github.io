@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hoolulu</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yuzeliu1029.github.io/"/>
+  <updated>2020-03-14T07:45:36.447Z</updated>
+  <id>http://yuzeliu1029.github.io/</id>
+  
+  <author>
+    <name>Hoolulu</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python_useful_command_notes</title>
+    <link href="http://yuzeliu1029.github.io/2020/02/28/python-useful-command-notes/"/>
+    <id>http://yuzeliu1029.github.io/2020/02/28/python-useful-command-notes/</id>
+    <published>2020-02-28T07:24:58.000Z</published>
+    <updated>2020-03-14T07:45:36.447Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Python-Useful-Notes&quot;&gt;&lt;a href=&quot;#Python-Useful-Notes&quot; class=&quot;headerlink&quot; title=&quot;Python Useful Notes&quot;&gt;&lt;/a&gt;Python Useful Notes&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="tech" scheme="http://yuzeliu1029.github.io/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>apache_arrow_notes</title>
+    <link href="http://yuzeliu1029.github.io/2020/02/27/apache-arrow-notes/"/>
+    <id>http://yuzeliu1029.github.io/2020/02/27/apache-arrow-notes/</id>
+    <published>2020-02-27T05:07:51.000Z</published>
+    <updated>2020-03-14T07:44:25.078Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Apache-Arrow&quot;&gt;&lt;a href=&quot;#Apache-Arrow&quot; class=&quot;headerlink&quot; title=&quot;Apache Arrow&quot;&gt;&lt;/a&gt;Apache Arrow&lt;/h1&gt;&lt;p&gt;Apache
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="tech" scheme="http://yuzeliu1029.github.io/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IPC_Windows</title>
+    <link href="http://yuzeliu1029.github.io/2020/02/27/IPC-Windows/"/>
+    <id>http://yuzeliu1029.github.io/2020/02/27/IPC-Windows/</id>
+    <published>2020-02-27T03:19:05.000Z</published>
+    <updated>2020-03-14T07:41:40.203Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Windows下进程间通信的13种方法&lt;/p&gt;
+&lt;h1 id=&quot;进程间通信&quot;&gt;&lt;a href=&quot;#进程间通信&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="tech" scheme="http://yuzeliu1029.github.io/tags/tech/"/>
+    
+      <category term="IPC" scheme="http://yuzeliu1029.github.io/tags/IPC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java_multi_thread</title>
+    <link href="http://yuzeliu1029.github.io/2020/02/25/Java-multi-thread/"/>
+    <id>http://yuzeliu1029.github.io/2020/02/25/Java-multi-thread/</id>
+    <published>2020-02-25T05:14:23.000Z</published>
+    <updated>2020-03-14T07:29:38.379Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;进程与线程&quot;&gt;&lt;a href=&quot;#进程与线程&quot; class=&quot;headerlink&quot; title=&quot;进程与线程&quot;&gt;&lt;/a&gt;进程与线程&lt;/h1&gt;&lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="tech" scheme="http://yuzeliu1029.github.io/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Gitlab_CI_Reasearch_and_Tutorial</title>
+    <link href="http://yuzeliu1029.github.io/2020/02/12/Gitlab-CI-Reasearch-and-Tutorial/"/>
+    <id>http://yuzeliu1029.github.io/2020/02/12/Gitlab-CI-Reasearch-and-Tutorial/</id>
+    <published>2020-02-12T05:28:26.000Z</published>
+    <updated>2020-03-14T05:34:06.305Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Gitlab-CI-Research-and-Tutorial&quot;&gt;&lt;a href=&quot;#Gitlab-CI-Research-and-Tutorial&quot; class=&quot;headerlink&quot; title=&quot;Gitlab CI Research and
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="tech" scheme="http://yuzeliu1029.github.io/tags/tech/"/>
+    
+      <category term="software" scheme="http://yuzeliu1029.github.io/tags/software/"/>
+    
+      <category term="java" scheme="http://yuzeliu1029.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Modelio_erro_solution</title>
+    <link href="http://yuzeliu1029.github.io/2020/01/14/Modelio-erro-solution/"/>
+    <id>http://yuzeliu1029.github.io/2020/01/14/Modelio-erro-solution/</id>
+    <published>2020-01-14T07:35:03.000Z</published>
+    <updated>2020-03-14T05:34:06.306Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Modelio-error-handeling&quot;&gt;&lt;a href=&quot;#Modelio-error-handeling&quot; class=&quot;headerlink&quot; title=&quot;Modelio error handeling&quot;&gt;&lt;/a&gt;Modelio error
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="tech" scheme="http://yuzeliu1029.github.io/tags/tech/"/>
+    
+      <category term="software" scheme="http://yuzeliu1029.github.io/tags/software/"/>
+    
+      <category term="java" scheme="http://yuzeliu1029.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>instance_of_usage</title>
+    <link href="http://yuzeliu1029.github.io/2020/01/13/instance-of-usage/"/>
+    <id>http://yuzeliu1029.github.io/2020/01/13/instance-of-usage/</id>
+    <published>2020-01-13T05:42:37.000Z</published>
+    <updated>2020-03-14T05:34:06.307Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;instnaceof用法&quot;&gt;&lt;a href=&quot;#instnaceof用法&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="tech" scheme="http://yuzeliu1029.github.io/tags/tech/"/>
+    
+      <category term="java" scheme="http://yuzeliu1029.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Clob_and_Blob_Usage_and_Diff</title>
+    <link href="http://yuzeliu1029.github.io/2020/01/13/Clob-and-Blob-Usage-and-Diff/"/>
+    <id>http://yuzeliu1029.github.io/2020/01/13/Clob-and-Blob-Usage-and-Diff/</id>
+    <published>2020-01-13T03:32:10.000Z</published>
+    <updated>2020-03-14T05:34:06.305Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;style&gt;
+table, th, td{
+  border: 1px solid #1e1b26;
+}
+
+th{
+  background: #CCEEFF;
+  color: #FBFBEF;
+}
+&lt;/style&gt;
+&lt;h1 id=&quot;CLOB与BLOB的区别和用途&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="tech" scheme="http://yuzeliu1029.github.io/tags/tech/"/>
+    
+      <category term="DataBase" scheme="http://yuzeliu1029.github.io/tags/DataBase/"/>
+    
+      <category term="JDBC" scheme="http://yuzeliu1029.github.io/tags/JDBC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>odbc_install</title>
+    <link href="http://yuzeliu1029.github.io/2020/01/10/odbc-install/"/>
+    <id>http://yuzeliu1029.github.io/2020/01/10/odbc-install/</id>
+    <published>2020-01-10T08:19:54.000Z</published>
+    <updated>2020-03-14T05:34:06.326Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;odbc简介&quot;&gt;&lt;a href=&quot;#odbc简介&quot; class=&quot;headerlink&quot; title=&quot;odbc简介&quot;&gt;&lt;/a&gt;odbc简介&lt;/h1&gt;&lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="tech" scheme="http://yuzeliu1029.github.io/tags/tech/"/>
+    
+      <category term="ODBC" scheme="http://yuzeliu1029.github.io/tags/ODBC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JUnit_Test_Learning_Notes</title>
+    <link href="http://yuzeliu1029.github.io/2019/12/28/JUnit-Test-Learning-Notes/"/>
+    <id>http://yuzeliu1029.github.io/2019/12/28/JUnit-Test-Learning-Notes/</id>
+    <published>2019-12-28T07:42:29.000Z</published>
+    <updated>2020-03-14T05:34:06.306Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;style&gt;
+table, th, td{
+  border: 1px solid #1e1b26;
+}
+th{
+  background: #CCEEFF;
+  color: #FBFBEF;
+}
+&lt;/style&gt;
+&lt;h1
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Java" scheme="http://yuzeliu1029.github.io/tags/Java/"/>
+    
+      <category term="Tech" scheme="http://yuzeliu1029.github.io/tags/Tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java_Exception_Handling</title>
+    <link href="http://yuzeliu1029.github.io/2019/12/23/Java-Exception-Handling/"/>
+    <id>http://yuzeliu1029.github.io/2019/12/23/Java-Exception-Handling/</id>
+    <published>2019-12-23T07:40:25.000Z</published>
+    <updated>2020-03-14T05:34:06.306Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Java-异常处理&quot;&gt;&lt;a href=&quot;#Java-异常处理&quot; class=&quot;headerlink&quot; title=&quot;Java 异常处理&quot;&gt;&lt;/a&gt;Java 异常处理&lt;/h1&gt;&lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="学习笔记" scheme="http://yuzeliu1029.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="tips" scheme="http://yuzeliu1029.github.io/tags/tips/"/>
+    
+      <category term="Java" scheme="http://yuzeliu1029.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JDBC_Commit</title>
+    <link href="http://yuzeliu1029.github.io/2019/12/10/JDBC-Commit/"/>
+    <id>http://yuzeliu1029.github.io/2019/12/10/JDBC-Commit/</id>
+    <published>2019-12-10T05:05:15.000Z</published>
+    <updated>2020-03-14T05:34:06.306Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;PGSQL JDBC执行commit命令时，首先在new PgSqlConnection的时候，会执行：&lt;code&gt;commitQuery = createQuery(&amp;quot;COMMIT&amp;quot;, false,
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="学习笔记" scheme="http://yuzeliu1029.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="tips" scheme="http://yuzeliu1029.github.io/tags/tips/"/>
+    
+      <category term="Java" scheme="http://yuzeliu1029.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Statement和PreparedStatement</title>
+    <link href="http://yuzeliu1029.github.io/2019/12/09/Temmporary/"/>
+    <id>http://yuzeliu1029.github.io/2019/12/09/Temmporary/</id>
+    <published>2019-12-09T14:30:10.000Z</published>
+    <updated>2020-03-14T05:34:06.307Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;关于Statement和PreparedStatement实现时的差别&quot;&gt;&lt;a href=&quot;#关于Statement和PreparedStatement实现时的差别&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="学习笔记" scheme="http://yuzeliu1029.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="jdbc" scheme="http://yuzeliu1029.github.io/tags/jdbc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git_cheatSheet</title>
+    <link href="http://yuzeliu1029.github.io/2019/12/06/git-cheatSheet/"/>
+    <id>http://yuzeliu1029.github.io/2019/12/06/git-cheatSheet/</id>
+    <published>2019-12-06T09:55:03.000Z</published>
+    <updated>2020-03-14T05:34:06.307Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;git使用快捷流程&quot;&gt;&lt;a href=&quot;#git使用快捷流程&quot; class=&quot;headerlink&quot; title=&quot;git使用快捷流程&quot;&gt;&lt;/a&gt;git使用快捷流程&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;git clone&lt;/li&gt;
+&lt;li&gt;git
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="tech" scheme="http://yuzeliu1029.github.io/tags/tech/"/>
+    
+      <category term="tips" scheme="http://yuzeliu1029.github.io/tags/tips/"/>
+    
+      <category term="git" scheme="http://yuzeliu1029.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>接班马云的为何是张勇</title>
+    <link href="http://yuzeliu1029.github.io/2019/12/04/%E6%8E%A5%E7%8F%AD%E9%A9%AC%E4%BA%91%E7%9A%84%E4%B8%BA%E4%BD%95%E6%98%AF%E5%BC%A0%E5%8B%87/"/>
+    <id>http://yuzeliu1029.github.io/2019/12/04/接班马云的为何是张勇/</id>
+    <published>2019-12-04T05:31:44.000Z</published>
+    <updated>2020-03-14T05:34:06.326Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;上海人、职业经理人、CFO 背景，集齐马云三大不喜欢的张勇怎么就成了阿里接班人？&lt;/p&gt;
+&lt;p&gt;版权声明：本文为CSDN博主「CSDN资讯」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。&lt;br&gt;原文链接：&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="随想" scheme="http://yuzeliu1029.github.io/categories/%E9%9A%8F%E6%83%B3/"/>
+    
+    
+      <category term="转载" scheme="http://yuzeliu1029.github.io/tags/%E8%BD%AC%E8%BD%BD/"/>
+    
+      <category term="杂谈" scheme="http://yuzeliu1029.github.io/tags/%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Simple_GRPC_Program_Eclipse</title>
+    <link href="http://yuzeliu1029.github.io/2019/12/03/Simple-GRPC-Program-Eclipse/"/>
+    <id>http://yuzeliu1029.github.io/2019/12/03/Simple-GRPC-Program-Eclipse/</id>
+    <published>2019-12-03T05:09:21.000Z</published>
+    <updated>2020-03-14T05:34:06.306Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Simple-GRPC-Java-Project-on-Eclipse&quot;&gt;&lt;a href=&quot;#Simple-GRPC-Java-Project-on-Eclipse&quot; class=&quot;headerlink&quot; title=&quot;Simple GRPC Java
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="学习笔记" scheme="http://yuzeliu1029.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="tips" scheme="http://yuzeliu1029.github.io/tags/tips/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PGSQL_JDBC_Learning_Notes</title>
+    <link href="http://yuzeliu1029.github.io/2019/11/21/JDBC-Learning-Notes/"/>
+    <id>http://yuzeliu1029.github.io/2019/11/21/JDBC-Learning-Notes/</id>
+    <published>2019-11-21T03:21:59.000Z</published>
+    <updated>2020-03-14T05:34:06.306Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;JDBC-API介绍&quot;&gt;&lt;a href=&quot;#JDBC-API介绍&quot; class=&quot;headerlink&quot; title=&quot;JDBC API介绍&quot;&gt;&lt;/a&gt;JDBC API介绍&lt;/h1&gt;&lt;h2 id=&quot;JDBC主要API简介&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="学习笔记" scheme="http://yuzeliu1029.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="tips" scheme="http://yuzeliu1029.github.io/tags/tips/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>learning_tips</title>
+    <link href="http://yuzeliu1029.github.io/2019/11/14/learning-tips/"/>
+    <id>http://yuzeliu1029.github.io/2019/11/14/learning-tips/</id>
+    <published>2019-11-14T06:12:34.000Z</published>
+    <updated>2020-03-14T05:34:06.308Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Java-运行报错解决方法&quot;&gt;&lt;a href=&quot;#Java-运行报错解决方法&quot; class=&quot;headerlink&quot; title=&quot;Java 运行报错解决方法&quot;&gt;&lt;/a&gt;Java 运行报错解决方法&lt;/h1&gt;&lt;p&gt;Error:Maven Resources
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="学习笔记" scheme="http://yuzeliu1029.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="tips" scheme="http://yuzeliu1029.github.io/tags/tips/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>最近一些工作tips</title>
+    <link href="http://yuzeliu1029.github.io/2019/11/06/%E6%9C%80%E8%BF%91%E4%B8%80%E4%BA%9B%E5%B7%A5%E4%BD%9Ctips/"/>
+    <id>http://yuzeliu1029.github.io/2019/11/06/最近一些工作tips/</id>
+    <published>2019-11-06T02:31:19.000Z</published>
+    <updated>2020-03-14T05:34:06.326Z</updated>
+    
+    <summary type="html">
+    
+      Tips for work
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="学习笔记" scheme="http://yuzeliu1029.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="tips" scheme="http://yuzeliu1029.github.io/tags/tips/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>纪念杂碎后院</title>
+    <link href="http://yuzeliu1029.github.io/2019/10/09/%E7%BA%AA%E5%BF%B5%E6%9D%82%E7%A2%8E%E5%90%8E%E9%99%A2/"/>
+    <id>http://yuzeliu1029.github.io/2019/10/09/纪念杂碎后院/</id>
+    <published>2019-10-09T15:34:22.000Z</published>
+    <updated>2020-03-14T05:34:06.327Z</updated>
+    
+    <summary type="html">
+    
+      随想
+    
+    </summary>
+    
+      <category term="随想" scheme="http://yuzeliu1029.github.io/categories/%E9%9A%8F%E6%83%B3/"/>
+    
+    
+      <category term="随想" scheme="http://yuzeliu1029.github.io/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+  </entry>
+  
+</feed>

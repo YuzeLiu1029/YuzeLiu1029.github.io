@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">JUnit_Test_Learning_Notes | Hoolulu</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "CYBERPUNK花花世界";
+  mashiro_option.author_name = "花花世界";
+  mashiro_option.site_url = "https://liuyuze.site";
+  mashiro_option.v_appId = "B8PRGSSB5zfUyeVXDBAoTnJJ-MdYXbMMI";
+  mashiro_option.v_appKey = "VpRJlUKO6nA27TSbbO917ia9";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/cover/(1).jpg.webp,https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/cover/(2).jpg.webp,https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/cover/(3).jpg.webp,https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/cover/(4).jpg.webp,https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/cover/(5).jpg.webp,https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/cover/(6).jpg.webp,https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/cover/(7).jpg.webp,https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/cover/(8).jpg.webp".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://liuyuze.site" target="_blank" rel="noopener">
+          <img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/custom/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>YOLO</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="http://github.com/YuzeLiu1029" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://weibo.com/hooluluGinAndTonic" target="_blank" class="social-github" title="sina">
+                    <img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/social/sina.png">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">CYBERPUNK</span>
+            <span class="shironeko">花花世界</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                          生活
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          随想
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E8%AF%BB%E4%B9%A6/">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          读书
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          影评
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%9B%BE%E9%9B%86/">
+                          <i class="fa fa-photo" aria-hidden="true"></i>
+                          图集
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          转载
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/booklist/">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          书单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          电影
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/cyber4.jpg);" src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/cyber4.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      JUnit_Test_Learning_Notes</h1>
+      <p class="entry-census">
+        <span>
+          <a href="liuyuze.site">
+            <img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/custom/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="liuyuze.site">Liu Yuze</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2019-12-28<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <style>
+table, th, td{
+  border: 1px solid #1e1b26;
+}
+th{
+  background: #CCEEFF;
+  color: #FBFBEF;
+}
+</style>
+<h1 id="JUnit-Test-Learning-Notes"><a href="#JUnit-Test-Learning-Notes" class="headerlink" title="JUnit Test Learning Notes"></a>JUnit Test Learning Notes</h1><h2 id="What-is-JUnit-Test"><a href="#What-is-JUnit-Test" class="headerlink" title="What is JUnit Test"></a>What is JUnit Test</h2><p>JUnit是Java编程语言的单元测试框架，用于编写和可重复运行的自动化测试。</p>
+<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
+<li>JUnit 是一个开放的资源框架，用于编写和运行测试。</li>
+<li>提供注解来识别测试方法。</li>
+<li>提供断言来测试预期结果。</li>
+<li>JUnit 测试允许你编写代码更快，并能提高质量。</li>
+<li>JUnit 优雅简洁。没那么复杂，花费时间较少。</li>
+<li>JUnit测试可以自动运行并且检查自身结果并提供即时反馈。所以也没有必要人工梳理测试结果的报告。</li>
+<li>JUnit测试可以被组织为测试套件，包含测试用例，甚至其他的测试套件。</li>
+<li>JUnit在一个条中显示进度。如果运行良好则是绿色；如果运行失败，则变成红色。</li>
+</ul>
+<h2 id="JUnit-Annotation"><a href="#JUnit-Annotation" class="headerlink" title="JUnit Annotation"></a>JUnit Annotation</h2><table>
+<thead>
+<tr>
+<th align="center">Annotation</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>@Test</code></td>
+<td align="center">测试注解，标记一个方法可以作为一个测试用例</td>
+</tr>
+<tr>
+<td align="center"><code>@Before</code></td>
+<td align="center">Before注解表示，该方法必须在类中的每个测试之前执行,以便执行某些必要的先决条件</td>
+</tr>
+<tr>
+<td align="center"><code>@BeforeClass</code></td>
+<td align="center">BeforeClass注解指出这是附着在静态方法必须执行一次并在类的所有测试之前，这种情况一般用于测试计算、共享配制方法(如数据库连接)</td>
+</tr>
+<tr>
+<td align="center"><code>@After</code></td>
+<td align="center">After注释表示，该方法在每项测试后执行（如执行每一个测试后重置某些变量，删除临时变量等)</td>
+</tr>
+<tr>
+<td align="center"><code>@AfterClass</code></td>
+<td align="center">当需要执行所有测试在JUnit测试用例类后执行，AlterClass注解可以使用以清理一些资源（如数据库连接），注意：方法必须为静态方法</td>
+</tr>
+<tr>
+<td align="center"><code>@Ignore</code></td>
+<td align="center">当想暂时禁用特定的测试执行可以使用这个注解，每个被注解为@Ignore的方法将不再执行</td>
+</tr>
+<tr>
+<td align="center"><code>@Runwith</code></td>
+<td align="center">@Runwith就是放在测试类名之前，用来确定这个类怎么运行的。也可以不标注，会使用默认运行器</td>
+</tr>
+<tr>
+<td align="center"><code>@Parameters</code></td>
+<td align="center">用于使用参数化功能</td>
+</tr>
+<tr>
+<td align="center"><code>@SuitClasses</code></td>
+<td align="center">用于套件测试</td>
+</tr>
+</tbody></table>
+<h2 id="JUnit-Assertion"><a href="#JUnit-Assertion" class="headerlink" title="JUnit Assertion"></a>JUnit Assertion</h2><table>
+<thead>
+<tr>
+<th>Assertion</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>void assertEquals([String message],expected value,actual value)</code></td>
+<td>断言两个值相等。值类型可能是<code>int</code>，<code>short</code>，<code>long</code>，<code>byte</code>，<code>char</code>，<code>Object</code>，第一个参数是一个可选字符串消息</td>
+</tr>
+<tr>
+<td><code>void assertTrue([String message],boolean condition)</code></td>
+<td>断言一个条件为真</td>
+</tr>
+<tr>
+<td><code>void assertFalse([String message],boolean condition)</code></td>
+<td>断言一个条件为假</td>
+</tr>
+<tr>
+<td><code>void assertNotNull([String message],java.lang.Object object)</code></td>
+<td>断言一个对象不为空(null)</td>
+</tr>
+<tr>
+<td><code>void assertNull([String message],java.lang.Object object)</code></td>
+<td>断言一个对象为空(null)</td>
+</tr>
+<tr>
+<td><code>void assertSame([String message],java.lang.Object expected,java.lang.Object actual)</code></td>
+<td>断言两个对象引用相同的对象</td>
+</tr>
+<tr>
+<td><code>void assertNotSame([String message],java.lang.Object unexpected,java.lang.Object actual)</code></td>
+<td>断言两个对象不是引用同一个对象</td>
+</tr>
+<tr>
+<td><code>void assertArrayEquals([String message],expectedArray,resultArray)</code></td>
+<td>断言预期数组和结果数组相等，数组类型可能是<code>int</code>，<code>short</code>，<code>long</code>，<code>byte</code>，<code>char</code>，<code>Object</code></td>
+</tr>
+</tbody></table>
+<pre><code class="java">public class AssertionTest {
+
+    @Test
+    public void test() {
+        String obj1 = &quot;junit&quot;;
+        String obj2 = &quot;junit&quot;;
+        String obj3 = &quot;test&quot;;
+        String obj4 = &quot;test&quot;;
+        String obj5 = null;
+
+        int var1 = 1;
+        int var2 = 2;
+
+        int[] array1 = {1, 2, 3};
+        int[] array2 = {1, 2, 3};
+
+        Assert.assertEquals(obj1, obj2);
+
+        Assert.assertSame(obj3, obj4);
+        Assert.assertNotSame(obj2, obj4);
+
+        Assert.assertNotNull(obj1);
+        Assert.assertNull(obj5);
+
+        Assert.assertTrue(var1 &lt; var2);
+        Assert.assertFalse(var1 &gt; var2);
+
+        Assert.assertArrayEquals(array1, array2);
+
+    }
+}</code></pre>
+<h2 id="JUnit执行过程"><a href="#JUnit执行过程" class="headerlink" title="JUnit执行过程"></a>JUnit执行过程</h2><pre><code class="java">public class JunitTest {
+
+    @BeforeClass
+    public static void beforeClass() {
+        System.out.println(&quot;in before class&quot;);
+    }
+
+    @AfterClass
+    public static void afterClass() {
+        System.out.println(&quot;in after class&quot;);
+    }
+
+    @Before
+    public void before() {
+        System.out.println(&quot;in before&quot;);
+    }
+
+    @After
+    public void after() {
+        System.out.println(&quot;in after&quot;);
+    }
+
+    @Test
+    public void testCase1() {
+        System.out.println(&quot;in test case 1&quot;);
+    }
+
+    @Test
+    public void testCase2() {
+        System.out.println(&quot;in test case 2&quot;);
+    }
+
+}</code></pre>
+<p>Running Result:</p>
+<pre><code class="java">in before class
+in before
+in test case 1
+in after
+in before
+in test case 2
+in after
+in after class</code></pre>
+<h2 id="Ignore-Test"><a href="#Ignore-Test" class="headerlink" title="Ignore Test"></a>Ignore Test</h2><ul>
+<li>一个带有@Ignore注解的测试方法不会被执行</li>
+<li>如果一个测试类带有@Ignore注解，则它的测试方法将不会被执行</li>
+</ul>
+<h2 id="Time-Test"><a href="#Time-Test" class="headerlink" title="Time Test"></a>Time Test</h2><p>JUnit提供了一个暂停的方便选项，如果一个测试用例比起指定的毫秒数花费了更多的时间，那么JUnit将自动将它标记为失败，timeout参数和<code>@Test</code>注解一起使用，例如<code>@Test(timeout=1000)</code>。</p>
+<pre><code class="java">@Test(timeout = 1000)
+    public void testCase1() throws InterruptedException {
+        TimeUnit.SECONDS.sleep(5000);
+        System.out.println(&quot;in test case 1&quot;);
+    }</code></pre>
+<h2 id="Exception-Test"><a href="#Exception-Test" class="headerlink" title="Exception Test"></a>Exception Test</h2><p>Junit 用代码处理提供了一个追踪异常的选项。你可以测试代码是否它抛出了想要得到的异常。<code>expected</code> 参数和 <code>@Test</code> 注释一起使用。</p>
+<pre><code class="java">@Test(expected = ArithmeticException.class)
+    public void testCase3() {
+        System.out.println(&quot;in test case 3&quot;);
+        int a = 0;
+        int b = 1 / a;
+    }</code></pre>
+<h2 id="Parameterized-Test"><a href="#Parameterized-Test" class="headerlink" title="Parameterized Test"></a>Parameterized Test</h2><p>Junit 4 引入了一个新的功能参数化测试。参数化测试允许开发人员使用不同的值反复运行同 一个测试。你将遵循 5 个步骤来创建参数化测试：</p>
+<ul>
+<li>为准备使用参数化测试的测试类指定特殊的运行器 <code>org.junit.runners.Parameterized</code>。</li>
+<li>为测试类声明几个变量，分别用于存放期望值和测试所用数据。</li>
+<li>为测试类声明一个带有参数的公共构造函数，并在其中为第二个环节中声明的几个变量赋值。</li>
+<li>为测试类声明一个使用注解 <code>org.junit.runners.Parameterized.Parameters</code> 修饰的，返回值为 <code>java.util.Collection</code> 的公共静态方法，并在此方法中初始化所有需要测试的参数对。</li>
+<li>编写测试方法，使用定义的变量作为参数进行测试。</li>
+</ul>
+<h2 id="Test-Suite"><a href="#Test-Suite" class="headerlink" title="Test Suite"></a>Test Suite</h2><p>“套件测试”是指捆绑了几个单元测试用例并运行起来。在<code>JUnit</code>中，<code>@RunWith</code> 和 <code>@Suite</code> 这两个注解是用来运行套件测试。先来创建几个测试类.</p>
+<pre><code class="java">
+public class JunitTest1 { 
+    @Test
+    public void printMessage(){
+        System.out.println(&quot;in JunitTest1&quot;);
+    }
+}
+public class JunitTest2 { 
+    @Test
+    public void printMessage(){
+        System.out.println(&quot;in JunitTest2&quot;);
+    }
+}
+
+@RunWith(Suite.class)
+@Suite.SuiteClasses({
+        /**
+         * 此处类的配置顺序会影响执行顺序
+         */
+        JunitTest1.class,
+        JunitTest2.class
+})
+public class JunitSuite {
+
+}</code></pre>
+<h3 id="关于-RunWith"><a href="#关于-RunWith" class="headerlink" title="关于@RunWith"></a>关于<code>@RunWith</code></h3><p>首先要分清几个概念：测试方法、测试类、测试集、测试运行器。</p>
+<ul>
+<li>其中测试方法就是用@Test注解的一些函数。</li>
+<li>测试类是包含一个或多个测试方法的一个<code>**Test.java</code>文件.</li>
+<li>测试集是一个<code>suite</code>，可能包含多个测试类。</li>
+<li>测试运行器则决定了用什么方式偏好去运行这些测试集/类/方法。</li>
+</ul>
+<p>而<code>@Runwith</code>就是放在测试类名之前，用来确定这个类怎么运行的。也可以不标注，会使用默认运行器。常见的运行器有：</p>
+<ul>
+<li><code>@RunWith(Parameterized.class)</code> 参数化运行器，配合<code>@Parameters</code>使用<code>JUnit</code>的参数化功能</li>
+<li><code>@RunWith(Suite.class)</code>,<code>@SuiteClasses({ATest.class,BTest.class,CTest.class})</code> 测试集运行器配合使用测试集功能。</li>
+<li><code>@RunWith(JUnit4.class)</code>， junit4的默认运行器</li>
+<li><code>@RunWith(JUnit38ClassRunner.class)</code>，用于兼容junit3.8的运行器,一些其它运行器具备更多功能。例如<code>@RunWith(SpringJUnit4ClassRunner.class)</code>集成了spring的一些功能。</li>
+</ul>
+
+        </div>
+        <!-- .entry-content -->
+        <!-- <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>  -->
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/01/10/odbc-install/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/123841.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/123841.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                odbc_install</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2019/12/23/Java-Exception-Handling/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/123832.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/123832.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                Java_Exception_Handling</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "B8PRGSSB5zfUyeVXDBAoTnJJ-MdYXbMMI",
+        appKey: "VpRJlUKO6nA27TSbbO917ia9",
+        path: window.location.pathname,
+        placeholder: "我劝你谨言慎行..."
+      })
+  }
+</script>
+<script>
+    if(window.location.hash){
+        var checkExist = setInterval(function() {
+           if ($(window.location.hash).length) {
+              $('html, body').animate({scrollTop: $(window.location.hash).offset().top-90}, 1000);
+              clearInterval(checkExist);
+           }
+        }, 100);
+    }
+</script>
+
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="liuyuze.site" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/custom/avatar.jpg" itemprop="image" alt="Liu Yuze" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="liuyuze.site" itemprop="url" rel="author">Liu Yuze</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>好少年光芒万丈</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+    </div>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Hoolulu<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2018</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Github</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic","name":"dbtw.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic","name":"dbtw.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/custom/avatar.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">CYBERPUNK花花世界</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="http://github.com/YuzeLiu1029" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="https://weibo.com/hooluluGinAndTonic" class="fa fa-weibo" target="_blank" style="color: #dd4b39; margin-left:20px"></a>
+      
+        <a href="https://wpa.qq.com/msgrd?v=3&uin=954655431&site=qq&menu=yes" class="fa fa-qq" target="_blank" style="color: #25c6fe; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  生活
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  随想
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E8%AF%BB%E4%B9%A6/">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  读书
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  影评
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E5%9B%BE%E9%9B%86/">
+                  <i class="fa fa-photo" aria-hidden="true"></i>
+                  图集
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  转载
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/booklist/">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  电影
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<div class="aplayer"
+
+    data-id="156157272"
+
+    data-server="netease"
+
+    data-type="playlist"
+
+    data-fixed="true"
+
+    data-autoplay="false"
+
+    data-loop="all"
+
+    data-order="random"
+
+    data-preload="auto"
+
+    data-volume="0.7"
+
+    data-mutex="true"
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+</html>

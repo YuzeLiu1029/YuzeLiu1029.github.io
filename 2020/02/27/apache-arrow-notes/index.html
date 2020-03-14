@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">apache_arrow_notes | Hoolulu</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "CYBERPUNK花花世界";
+  mashiro_option.author_name = "花花世界";
+  mashiro_option.site_url = "https://liuyuze.site";
+  mashiro_option.v_appId = "B8PRGSSB5zfUyeVXDBAoTnJJ-MdYXbMMI";
+  mashiro_option.v_appKey = "VpRJlUKO6nA27TSbbO917ia9";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/cover/(1).jpg.webp,https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/cover/(2).jpg.webp,https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/cover/(3).jpg.webp,https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/cover/(4).jpg.webp,https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/cover/(5).jpg.webp,https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/cover/(6).jpg.webp,https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/cover/(7).jpg.webp,https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/cover/(8).jpg.webp".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://liuyuze.site" target="_blank" rel="noopener">
+          <img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/custom/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>YOLO</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="http://github.com/YuzeLiu1029" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://weibo.com/hooluluGinAndTonic" target="_blank" class="social-github" title="sina">
+                    <img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/social/sina.png">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">CYBERPUNK</span>
+            <span class="shironeko">花花世界</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                          生活
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          随想
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E8%AF%BB%E4%B9%A6/">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          读书
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          影评
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E5%9B%BE%E9%9B%86/">
+                          <i class="fa fa-photo" aria-hidden="true"></i>
+                          图集
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          转载
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/booklist/">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          书单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          电影
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/cyber2.jpg);" src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/cyber2.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      apache_arrow_notes</h1>
+      <p class="entry-census">
+        <span>
+          <a href="liuyuze.site">
+            <img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/custom/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="liuyuze.site">Liu Yuze</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-2-27<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="Apache-Arrow"><a href="#Apache-Arrow" class="headerlink" title="Apache Arrow"></a>Apache Arrow</h1><p>Apache Arrow是一个内存分析技术的开发平台。<br>内存分析技术(In-Memorary Analytics)是从内存中直接获取分析数据，区别于传统工具在分析时是从存储在磁盘中的数据库，数据仓库或OLAP中获取数据。内存分析技术的数据，被预先载入内存，用户在执行查询及后续分析时，均直接从内存中获取数据。<br>Apache Arrow可以使的大数据系统更加快速的处理和转移数据。此外Apache Arrow规定了一种标准化不依赖于特定编程语言(language-independent)的内存列式(columnar memory)数据格式,用来处理平面数据(flat data)和分层数据(hierarchical data)。<br>Apache Arrow围绕的几个主题为：</p>
+<ul>
+<li>零拷贝共享内存(Zero-copy shared memory)以及基于RPC的数据移动。</li>
+<li>内存分析(in-memory analytics)和数据库查询(query processing).</li>
+<li>读写文件格式(CSV,Apache ORC,Apache Parquet)。<br>Apache Parquet：是一种面向分析的，通用的列式存储格式，兼容各种数据处理框架，比如Spark，Hive，Impala，同时支持Avro，Thrift, Protocal Buffer等数据模型。</li>
+</ul>
+<h2 id="1-数据格式：Arrow-Columnar-Format"><a href="#1-数据格式：Arrow-Columnar-Format" class="headerlink" title="1. 数据格式：Arrow Columnar Format"></a>1. 数据格式：Arrow Columnar Format</h2><ul>
+<li>和编程语言无关的内存数据结构</li>
+<li>使用Google的Flatbuffers来进行元数据序列化</li>
+<li>顺序访问数据邻接</li>
+<li>随机访问时间复杂度为O(1)</li>
+<li>SIMD(Singel Instruction Multiple Data:单指令多数据流，能够复制多个操作数，并把它们打包在大型寄存器的一组指令集)以及向量化友好(vectorization-friendly)</li>
+<li>允许真正的零拷贝共享内存(zero-copy in shared memory)，重定位(Relocatable：把程序的逻辑地址空间变换成内存中的实际物理地址空间，是实现多到程序在内存中同时运行的基础)而不用担心指针变换(pointer swizzling)。<br>pointer swizzling:指针变化，conversion of references based on name or position to direct pointer reference.内存中的节点通过逻辑指针(实际就是内存地址)连接，将这些节点保存到磁盘时，逻辑指针就没有任何意义了，需要变化一种方式来表示这些节点间的连接关系，这个变化的过程叫做unswizzling，反过来讲这些节点从磁盘中load到内存中变化就是swizzling。因为Apache Arrow是是内存数据，所以不存在pointer swizzling。</li>
+</ul>
+<h3 id="1-1-物理内存布局-Physical-Memory-Layout"><a href="#1-1-物理内存布局-Physical-Memory-Layout" class="headerlink" title="1.1 物理内存布局(Physical Memory Layout)"></a>1.1 物理内存布局(Physical Memory Layout)</h3><p>在物理内存中，一个数组由几段元数据和数据组成：</p>
+<ul>
+<li>一种逻辑数据类型(logical data type)<br>每一种逻辑数据类型都有一个已经完全定义好的物理布局，其中logical data type包括下列几种类型：<ul>
+<li>Primitive(fixed-size):拥有相同字节数的值</li>
+<li>Variable-size Binary:拥有不同字节长度的值，可以采用32位编码或者64位编码</li>
+<li>Fixed-size List:嵌套型布局，每一个值都是由相同数量的元素组成，每一个元素都是从相同的子数列的数据类型继承而来。</li>
+<li>Variable-size List:嵌套型布局，每一个值都是由不同数量的元素组成，每一个元素都是从相同的子数列的数据类型继承而来。</li>
+<li>Struct:嵌套型数据结构，每一个值由不同的子域(child field)组成，子域的数据类型可以不同，但是长度需要相同。</li>
+<li>Sparse Union / Dense Union:嵌套型数据结构</li>
+<li>Null:一系列空值</li>
+</ul>
+</li>
+<li>一系列缓冲区(a sequence of buffer)</li>
+<li>64字节长的有符号整型数据(64bit signed integer)</li>
+<li>64字节长的有符号整型数据用来表示null值数量。</li>
+<li>可选：一个字典，对于字典编码(dictionry-encoded)的数组<br>对于嵌套型的数组(nested arrays),就是有一系列的一个或多个上述数据结构，称为子数组(child arrays)。<br>Apache Arrow内存列式数据结构只应用在数据上，而并非元数据。内存元数据的数据格式可根据具体实现方式而改变，元数据的序列化使用Flatbuffer，和实现方式无关(implementation-independent)。</li>
+</ul>
+<h4 id="1-1-1-缓存区对齐和填充-Buffer-Alignment-and-Padding"><a href="#1-1-1-缓存区对齐和填充-Buffer-Alignment-and-Padding" class="headerlink" title="1.1.1 缓存区对齐和填充(Buffer Alignment and Padding)"></a>1.1.1 缓存区对齐和填充(Buffer Alignment and Padding)</h4><p>建议在实现时，分配内存的时候保证地址对齐(8-或64-字节的倍数)，并且在长度上进行填充到(8-或64-字节的倍数)。当在IPC(interprocess communication：进程间通信)序列化Arrow data时，对于地址对齐和长度填充是强制的。建议使用64字节对齐和填充。</p>
+<h4 id="1-1-2-数组长度"><a href="#1-1-2-数组长度" class="headerlink" title="1.1.2 数组长度"></a>1.1.2 数组长度</h4><p>数组长度作为数据的元数据(Arrow Metadata)，用64字节长的有符号整型数据表示。在跨语言环境中，建议将数组长度保持在2^31 - 1，大于此的数据集可以用过个数组来表示。</p>
+<h4 id="1-1-3-Null值数量"><a href="#1-1-3-Null值数量" class="headerlink" title="1.1.3 Null值数量"></a>1.1.3 Null值数量</h4><p>null值数量也属于元数据，用64字节的有符号整型数据表示，可能和数组的程度一样大。</p>
+<h4 id="1-1-4-有效性位图-validity-bitmap"><a href="#1-1-4-有效性位图-validity-bitmap" class="headerlink" title="1.1.4 有效性位图(validity bitmap)"></a>1.1.4 有效性位图(validity bitmap)</h4><p>指示每一位的值是否有效(及是否为null值)，采用的是LSB，每8个字节从右往左读。<br>一个没有null值的数组，在实现的时候可以选择不分配内尊空间给有效性位图，当然为了实现的方便，也可以无论是否需要都为有效性位图分配空间。无论哪种方式，在共享内存的时候应当注意是否分配了该空间以及如何分配。<br>嵌套式数组有自己独立的null count以及validity bitmap，与它子数组的这两个值是独立分开的。</p>
+<h4 id="1-1-5-举例1"><a href="#1-1-5-举例1" class="headerlink" title="1.1.5 举例1"></a>1.1.5 举例1</h4><p>以一个int32 Array为例，一个数字占4个字节<br><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogpic_new/apachearrow/1.png" alt=""><br>总结：primitive array型的数据结构由4部分组成，数组长度，null值数量，缓存区，其中缓存区由value buffer以及validity bitmap buffer组成。</p>
+<h4 id="1-1-6-举例2"><a href="#1-1-6-举例2" class="headerlink" title="1.1.6 举例2"></a>1.1.6 举例2</h4><p>如果是不同长度的的列表嵌套式数组(Variable-size List Array)或者不同长度的二进制数组(Variable-size Binary Layout),及每一个数组的值可能由0或多个byte组成，这种情况下，Value Buffer将会拆分成两个部分，offsets buffer以及data buffer。<br>offset buffer拥有length+1 signed integer(int32或int64，根据数据类型而定)，编码了data buffer里每一个slot的开始位置。<br>the position and length of slot j is computed as:<br><code>slot_position = offsets[j]</code><br><code>slot_length = offsets[j + 1] - offsets[j]  // (for 0 &lt;= j &lt; length)</code><br>下面以一个List&lt;int8&gt; array为例：<br><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogpic_new/apachearrow/2.png" alt=""><br>buffer的组成有validity map, offsetmap,而它的值，其实是之前一个primitive array组成，primitive array的在buffer组成是validity map和value buffer，因为没有空值，validity map省略，只有value map。<br><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogpic_new/apachearrow/3.png" alt=""></p>
+<h3 id="1-2-序列化和进程间通信Serialization-and-Interprocess-Communication-IPC"><a href="#1-2-序列化和进程间通信Serialization-and-Interprocess-Communication-IPC" class="headerlink" title="1.2 序列化和进程间通信Serialization and Interprocess Communication(IPC)"></a>1.2 序列化和进程间通信Serialization and Interprocess Communication(IPC)</h3><p>序列化的内存列式数据的主要单位是”record batch”。一个record batch就是一组有序的数组(ordered collection of arrays)，这些有序的数组被称作这个”record batch“的”fields“。每一个数组的长度都是相同的，但是数据类型可以不相同。一个record batch的每一个域的名字和数据类型，组成了这个record batch的schema。<br>Apache Arrow定义了一个协议用来把这些record batches编码成二进制的payload用于传输，并且可以将这些payload重新构建成record batch而无需复制内存(memory copy)。<br>Apache arrow的这个协议把schema，<br>RecordBatch或者DictionaryBatch利用一个单项流式二进制信息(a one-way stream of binary messages)表示出来，这种信息，叫做压缩式IPC信息(encapsulated IPC message)。</p>
+<h4 id="1-2-1-压缩式IPC信息格式"><a href="#1-2-1-压缩式IPC信息格式" class="headerlink" title="1.2.1 压缩式IPC信息格式"></a>1.2.1 压缩式IPC信息格式</h4><p>压缩式IPC信息可以用于简单流式传输(simple streaming)和基于文件的序列化(file-based serialization),压缩式IPC信息可以通过它的元数据信息就可以”反序列化“为内存Arrow数组，而无需复制或移动实际的数据。<br>压缩式IPC格式如下：</p>
+<ul>
+<li>一个32位的标识符。<code>0xFFFFFFFF</code>表示该信息为有效信息。这个部分是为了适配Flatbuffer。</li>
+<li>一个32位的小端长度前缀表示元数据的大小。(&lt;metadata_size&gt;)</li>
+<li>信息的元数据。(&lt;metadata_flatbuffer&gt;)</li>
+<li>填充字节，为了满足8字节字节边界(&lt;padding&gt;)</li>
+<li>消息体，可选(&lt;meassage body&gt; optional)</li>
+</ul>
+<p>最后的格式如下：<br><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogpic_new/apachearrow/4.png" alt=""><br>最后整个消息的大小一定要为8字节的倍数。<br>其中<code>metadata_size</code>包括信息以及padding的大小，<code>metadata_flatbuffer</code>包括序列化的信息Flatbuffer值。Flatbuffer值包含下列信息：在message.fbs中定义</p>
+<ul>
+<li>版本号</li>
+<li>特定信息值(schema，RecordBatch，还是DictionaryBatch)。</li>
+<li>信息本体的大小</li>
+<li>自定义元数据信息(custom_metadata)。</li>
+</ul>
+<p>压缩IPC信息又分为Schema message, RecordBatch message,  DictionaryBatch message.</p>
+<ul>
+<li><p>Schema message：本身不含有任何数据，只有它所定义的RecordBatch的元数据。Schema中包含的是RecordBatch所包含的field的信息，在Flatbuffer序列化的时候field被序列化为Field FlatBuffer type，其中包含</p>
+<ul>
+<li>field名称</li>
+<li>field数据类型</li>
+<li>是否可为null</li>
+<li>如果是嵌套型，则会有所有子field的值</li>
+<li>是否为dictionary-encoded</li>
+</ul>
+</li>
+<li><p>RecordBatch message：包含实际的由schema定义的在物理内存上的data buffer。RecordBatch的元数据提供了每个buffer的地址和大小，允许使用指针运算直接将data buffer构建回数组而不需内存拷贝。RecordMessage的信息体构成如下：</p>
+<ul>
+<li>数据头(data header)，定义为RecordBatch型数据。还包含每一个展开的field的长度以及null的数量。以及每一块内存的偏移量(offset)和长度。</li>
+<li>数据体(body),一系列展开的(非嵌套)memory buffers以及padding来确保是8字节的倍数。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogpic_new/apachearrow/5.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogpic_new/apachearrow/6.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogpic_new/apachearrow/7.png" alt=""></p>
+<h4 id="1-2-2-IPC-Streaming-Format"><a href="#1-2-2-IPC-Streaming-Format" class="headerlink" title="1.2.2 IPC Streaming Format"></a>1.2.2 IPC Streaming Format</h4><p>Apache Arrow对IPC有一个流式传输协议。流式传输主要就是一系列遵循上述格式的IPC Message的集合。一般来说，流的开端是Schema类型的IPC Message，这个Schema之后的所有的RecordBatch类型的IPC Message全部都符合该Schema。如果存在有Dictionary-encoded情况，Dictionary类型的IPC Message会和RecordBatch Message都会在数据流中，但是任何用到Dictionary-Key的RecordBatch Message之前，存有该key信息的Dictionary Message一定已经出现了。</p>
+<h4 id="1-2-3-IPC-File-Format"><a href="#1-2-3-IPC-File-Format" class="headerlink" title="1.2.3 IPC File Format"></a>1.2.3 IPC File Format</h4><p>IPC File Format主要是用来支持随机访问(Random Access)。文件其实也是由流式格式组成，只是在文件的开头和结尾都有一个字符串<code>ARROW1(plus padding)</code>。两个字符串之间的内容和流式传输的格式完全一样。在文件结尾，有一个&lt;footer&gt;，由Schema Message的副本和内存的偏移及长度组成，内存的偏移及长度用来描述文件中的每一个data block(RecordBatch)。<br><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogpic_new/apachearrow/8.png" alt=""></p>
+<h2 id="2-Arrow-Flight-RPC"><a href="#2-Arrow-Flight-RPC" class="headerlink" title="2. Arrow Flight RPC"></a>2. Arrow Flight RPC</h2><p>Arrow Flight RPC是一个基于Arrow Data高性能的数据服务RPC框架，它也是在gRPC和IPC格式的基础上构建的。<br>Methods和rpc message由Protobuf定义，客户端即使不直接支持Arrow Flight，只要可以分别支持gRPC和Apache Arrow即可，不过Flight对Protobuf在内存性能上进行了更深层的优化。</p>
+<h3 id="2-1-RPC-Method"><a href="#2-1-RPC-Method" class="headerlink" title="2.1 RPC Method"></a>2.1 RPC Method</h3><p>Flight定义了一系列RPC方法用来上传/下载数据，可以获取一个数据流对应的元数据，列出当前可行的全部数据流，还可以根据具体的应用定义对应的RPC方法。一个Flight的客户端可以连接任意一个Flight的服务端并执行基本操作。<br>数据流由标识符进行标识，标识符可以是路径或者任意一个二进制命令。<br>如果一个客户端希望请求下载数据，需要下面几步：</p>
+<ul>
+<li>构造或获取一个目标数据集的标识符，可以通过listFlights来查看当前available的数据流的标识符。</li>
+<li>Call<code>GetFlightInfo(FlightDescriptor)</code>来获取<code>FlightInfo</code>信息，这个信息里包含详细的信息，关于数据集的位置，schema以及估算的大小等元数据信息。Flight不要求这些元数据和他们所描述的数据本身在同一台服务器上：这个方法可以列出其他与之相连的服务端的服务器。<code>FlightInfo</code>信息包含一个<code>Ticket</code>，是一个不透明的二进制token，服务端需要这个token来识别客户端所请求的数据集。</li>
+<li>如果需要，会与其他Server连接</li>
+<li>Call<code>DoGet(Ticket)</code>来获取recordbacth的数据流。</li>
+</ul>
+<p>如果客户需要上传数据：</p>
+<ul>
+<li>构建或获取一个标识符。</li>
+<li>Call<code>DoPut(FlightData)</code>来上传一个由RecordBacth构成的数据流，在第一跳信息中心需要包含标识符(FlightDescriptor)。</li>
+</ul>
+<h2 id="Question-amp-amp-To-be-continued-…"><a href="#Question-amp-amp-To-be-continued-…" class="headerlink" title="Question &amp;&amp; To be continued …"></a>Question &amp;&amp; To be continued …</h2><p>Implementation guidelines<br>An execution engine (or framework, or UDF executor, or storage engine, etc) can implement only a subset of the Arrow spec and/or extend it given the following constraints:</p>
+<p>Implementing a subset the spec<br>If only producing (and not consuming) arrow vectors: Any subset of the vector spec and the corresponding metadata can be implemented.</p>
+<p>If consuming and producing vectors: There is a minimal subset of vectors to be supported. Production of a subset of vectors and their corresponding metadata is always fine. Consumption of vectors should at least convert the unsupported input vectors to the supported subset (for example Timestamp.millis to timestamp.micros or int32 to int64).</p>
+<ol>
+<li>in java <code>Class AllocationManager</code>:<br>Manages the relationship between one or more allocators and a particular <strong>UDLE</strong>（UnsafeDirectLittleEndian）. Ensures that one allocator owns the memory that multiple allocators may be referencing. Manages a BufferLedger between each of its associated allocators.<br>The only reason that this isn’t package private is we’re forced to put ArrowBuf in Netty’s package which need access to these objects or methods.<br>Threading: AllocationManager manages thread-safety internally. Operations within the context of a single BufferLedger are lockless in nature and can be leveraged by multiple threads. Operations that cross the context of two ledgers will acquire a lock on the AllocationManager instance. Important note, there is one AllocationManager per UnsafeDirectLittleEndian buffer allocation. As such, there will be thousands of these in a typical query. The contention of acquiring a lock on AllocationManager should be very low.</li>
+</ol>
+
+        </div>
+        <!-- .entry-content -->
+        <!-- <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>  -->
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/02/28/python-useful-command-notes/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/cyber4.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/cyber4.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                python_useful_command_notes</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2020/02/27/IPC-Windows/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/cyber1.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic/cyber1.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                IPC_Windows</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "B8PRGSSB5zfUyeVXDBAoTnJJ-MdYXbMMI",
+        appKey: "VpRJlUKO6nA27TSbbO917ia9",
+        path: window.location.pathname,
+        placeholder: "我劝你谨言慎行..."
+      })
+  }
+</script>
+<script>
+    if(window.location.hash){
+        var checkExist = setInterval(function() {
+           if ($(window.location.hash).length) {
+              $('html, body').animate({scrollTop: $(window.location.hash).offset().top-90}, 1000);
+              clearInterval(checkExist);
+           }
+        }, 100);
+    }
+</script>
+
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="liuyuze.site" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/custom/avatar.jpg" itemprop="image" alt="Liu Yuze" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="liuyuze.site" itemprop="url" rel="author">Liu Yuze</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>好少年光芒万丈</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+    </div>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Hoolulu<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2018</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Github</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic","name":"dbtw.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic","name":"dbtw.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/custom/avatar.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">CYBERPUNK花花世界</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="http://github.com/YuzeLiu1029" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="https://weibo.com/hooluluGinAndTonic" class="fa fa-weibo" target="_blank" style="color: #dd4b39; margin-left:20px"></a>
+      
+        <a href="https://wpa.qq.com/msgrd?v=3&uin=954655431&site=qq&menu=yes" class="fa fa-qq" target="_blank" style="color: #25c6fe; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  生活
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  随想
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E8%AF%BB%E4%B9%A6/">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  读书
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  影评
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E5%9B%BE%E9%9B%86/">
+                  <i class="fa fa-photo" aria-hidden="true"></i>
+                  图集
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  转载
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/booklist/">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  电影
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<div class="aplayer"
+
+    data-id="156157272"
+
+    data-server="netease"
+
+    data-type="playlist"
+
+    data-fixed="true"
+
+    data-autoplay="false"
+
+    data-loop="all"
+
+    data-order="random"
+
+    data-preload="auto"
+
+    data-volume="0.7"
+
+    data-mutex="true"
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+</html>
