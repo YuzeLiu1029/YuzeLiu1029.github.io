@@ -635,7 +635,8 @@ nyPizzaStore.orderPizza(&quot;cheese&quot;);</code></pre>
 <pre><code class="java">Pizza pizza = createPizza(&quot;cheese&quot;);</code></pre>
 <p>在<code>createPizza</code>中，我们建立了纽约原料工厂，并用它来制作CheesePizza：</p>
 <pre><code class="java">Pizza pizza = new CheesePizza(nyIngredientFactory);</code></pre>
-<p>这样在Pizza的prepare()过程中，我们会使用nyIngredientFactory来创建各种原材料：<code>createDough()</code>, <code>createSauce()</code>, <code>createCheese()</code>, <code>createClam()</code>。<br>最后我们把Pizza <code>bake()</code>，<code>cut()</code>， <code>box()</code>然后return；<br>这个设计模式就是抽象工厂模式，我们利用抽象工厂创建了一个产品家族。抽象工厂允许客户使用抽象的接口来创建一组相关的产品，而不需要关心实际产出的具体产品是什么。<br><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/blogpic/abstractFactory1.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/blogpic/abstractFactory2.png" alt=""><br>其实还有一个有意思的发现，抽象工厂中每一个<code>create method</code>都是一个工厂方法设计模式。确实如此，通常抽象工厂中的方法其实就是以工厂方法实现的，这其实也是很自然的事情，抽象工厂是用来创建一组产品的接口，这个接口内的每一个方法其实都负责创建一个具体的产品，而我们是通过抽象工厂的子类来实现创建这些具体产品。</p>
+<p>这样在Pizza的prepare()过程中，我们会使用nyIngredientFactory来创建各种原材料：<code>createDough()</code>, <code>createSauce()</code>, <code>createCheese()</code>, <code>createClam()</code>。<br>最后我们把Pizza <code>bake()</code>，<code>cut()</code>， <code>box()</code>然后return；<br>这个设计模式就是抽象工厂模式，我们利用抽象工厂创建了一个产品家族。抽象工厂允许客户使用抽象的接口来创建一组相关的产品，而不需要关心实际产出的具体产品是什么。<br>产出的具体产品是什么。<br><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/blogpic/abstractFactory1.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/blogpic/abstractFactory2.png" alt=""><br>其实还有一个有意思的发现，抽象工厂中每一个<code>create method</code>都是一个工厂方法设计模式。确实如此，通常抽象工厂中的方法其实就是以工厂方法实现的，这其实也是很自然的事情，抽象工厂是用来创建一组产品的接口，这个接口内的每一个方法其实都负责创建一个具体的产品，而我们是通过抽象工厂的子类来实现创建这些具体产品。</p>
 
         </div>
         <!-- .entry-content -->
