@@ -420,7 +420,7 @@ chicagoStore.orderPizza(&quot;veggie&quot;);</code></pre>
 
     abstract Pizza createPizza(String type);
 }</code></pre>
-<p><em>抽象类自己是不能实例化对象的，它必须要被继承才能被使用。通常在设计阶段就要确定是否要使用抽象类。<br>抽象类和接口类的区别：<br>在语法层面上 ：抽象类可以提供成员方法的实现细节，而接口中只能存在public abstaract方法；抽象类中的成员变量可以是各种类型，接口类只能是public static final；接口类中不能含有静态代码块和静态方法，抽象类中可以有；一个类只能继承一个抽象类但是可以实现多个接口类；<br>设计层面上：抽象类是对一种事物的抽象而接口类是对行为的抽象；抽象类作为很多子类的父类是一种模版式设计而接口是一种行为规范。</em><br>所以现在我们对拥有加盟店后的整体设计变成：有一个PizzaStore作为父类，每个子类都继承这个父类，但每个子类可以自行决定如何制造这个特色Pizza。这里用到了一个重构的技巧，叫做<strong>提炼继承类(Extract Hierarchy)</strong>。<br><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/blogpic/factMethod1.png" alt=""><br>站在PizzaStore的orderPizza()的角度来看，此抽象方法是在PizzaStore内部定义的，但是是交由子类来具体实现的，orderPizza()对Pizza这个类做了很多事情，但是Pizza对象是抽象的，orderPizza()是并不知道实际参与的具体类是哪一个，这就是解耦(decouple)。<br>所以现在我们新开一个纽约加盟店中<code>createPizza</code>的代码是这样的：</p>
+<p><em>抽象类自己是不能实例化对象的，它必须要被继承才能被使用。通常在设计阶段就要确定是否要使用抽象类。<br>抽象类和接口类的区别：<br>在语法层面上 ：抽象类可以提供成员方法的实现细节，而接口中只能存在public abstaract方法；抽象类中的成员变量可以是各种类型，接口类只能是public static final；接口类中不能含有静态代码块和静态方法，抽象类中可以有；一个类只能继承一个抽象类但是可以实现多个接口类；<br>设计层面上：抽象类是对一种事物的抽象而接口类是对行为的抽象；抽象类作为很多子类的父类是一种模版式设计而接口是一种行为规范。</em><br>所以现在我们对拥有加盟店后的整体设计变成：有一个PizzaStore作为父类，每个子类都继承这个父类，但每个子类可以自行决定如何制造这个特色Pizza。这里用到了一个重构的技巧，叫做<strong>提炼继承类(Extract Hierarchy)</strong>。<br><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/blogpic/factMethod01.png" alt=""><br>站在PizzaStore的orderPizza()的角度来看，此抽象方法是在PizzaStore内部定义的，但是是交由子类来具体实现的，orderPizza()对Pizza这个类做了很多事情，但是Pizza对象是抽象的，orderPizza()是并不知道实际参与的具体类是哪一个，这就是解耦(decouple)。<br>所以现在我们新开一个纽约加盟店中<code>createPizza</code>的代码是这样的：</p>
 <pre><code class="java">public class NYPizzaStore extends PizzaStore {
     Pizza createPizza (String type) {
         if (type.equals(&quot;cheese&quot;)) {
@@ -635,7 +635,7 @@ nyPizzaStore.orderPizza(&quot;cheese&quot;);</code></pre>
 <pre><code class="java">Pizza pizza = createPizza(&quot;cheese&quot;);</code></pre>
 <p>在<code>createPizza</code>中，我们建立了纽约原料工厂，并用它来制作CheesePizza：</p>
 <pre><code class="java">Pizza pizza = new CheesePizza(nyIngredientFactory);</code></pre>
-<p>这样在Pizza的prepare()过程中，我们会使用nyIngredientFactory来创建各种原材料：<code>createDough()</code>, <code>createSauce()</code>, <code>createCheese()</code>, <code>createClam()</code>。<br>最后我们把Pizza <code>bake()</code>，<code>cut()</code>， <code>box()</code>然后return；<br>这个设计模式就是抽象工厂模式，我们利用抽象工厂创建了一个产品家族。抽象工厂允许客户使用抽象的接口来创建一组相关的产品，而不需要关心实际产出的具体产品是什么。<br>产出的具体产品是什么。<br><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/blogpic/abstractFactory1.png" alt=""></p>
+<p>这样在Pizza的prepare()过程中，我们会使用nyIngredientFactory来创建各种原材料：<code>createDough()</code>, <code>createSauce()</code>, <code>createCheese()</code>, <code>createClam()</code>。<br>最后我们把Pizza <code>bake()</code>，<code>cut()</code>， <code>box()</code>然后return；<br>这个设计模式就是抽象工厂模式，我们利用抽象工厂创建了一个产品家族。抽象工厂允许客户使用抽象的接口来创建一组相关的产品，而不需要关心实际产出的具体产品是什么。<br>产出的具体产品是什么。<br><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/blogpic/abstractFactory01.png" alt=""></p>
 <p><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/blogpic/abstractFactory2.png" alt=""><br>其实还有一个有意思的发现，抽象工厂中每一个<code>create method</code>都是一个工厂方法设计模式。确实如此，通常抽象工厂中的方法其实就是以工厂方法实现的，这其实也是很自然的事情，抽象工厂是用来创建一组产品的接口，这个接口内的每一个方法其实都负责创建一个具体的产品，而我们是通过抽象工厂的子类来实现创建这些具体产品。</p>
 
         </div>
