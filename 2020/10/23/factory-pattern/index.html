@@ -338,13 +338,15 @@
         
         <div class="entry-content">
           <h1 id="工厂类-：从订购一个Pizza开始"><a href="#工厂类-：从订购一个Pizza开始" class="headerlink" title="工厂类 ：从订购一个Pizza开始"></a>工厂类 ：从订购一个Pizza开始</h1><p>作为一个披萨店的老板，你可能需要这样一段代码来完成Pizza的订购：</p>
-<pre><code class="java">public Pizza orderPizza() {
-    Pizza pizza = new Pizza();
-    pizza.prepare();
-    pizza.bake();
-    pizza.cut();
-    pizza.bake();
-    return pizza;
+<pre><code class="java">public class PizzaStore {
+    public Pizza orderPizza() {
+        Pizza pizza = new Pizza();
+        pizza.prepare();
+        pizza.bake();
+        pizza.cut();
+        pizza.bake();
+        return pizza;
+    }
 }</code></pre>
 <p>如果你需要更多的不同类型的Pizza，可能会出现如下代码：</p>
 <pre><code class="java">public Pizza orderPizza(String types) {
@@ -364,7 +366,75 @@
     pizza.bake();
     return pizza;
 }</code></pre>
-<p>当Pizza的种类变得复杂，新的种类不断增多，而有些过时的种类不再受欢迎的时候，这段代码会被反复拿出来做修改，增加或删除一些种类来适应不断变化的菜单，但这其实违背了开放封闭原则。<br>开放封闭原则：当软件需要变化时，应尽量通过扩展的方式来实现变化，而不是通过修改的方式来实现。如果实例化某些具体类的时候，可能会使orderPizza这段代码出问题，因此说orderPizza这段代码没有对修改关闭。<br>既然已经知道了哪些代码会改变，哪些不会，那么我们可以采用refactor中的一个技巧封装来对这段代码进行改变。</p>
+<p>当Pizza的种类变得复杂，新的种类不断增多，而有些过时的种类不再受欢迎的时候，这段代码会被反复拿出来做修改，增加或删除一些种类来适应不断变化的菜单，但这其实违背了开放封闭原则。<br>开放封闭原则：当软件需要变化时，应尽量通过扩展的方式来实现变化，而不是通过修改的方式来实现。如果实例化某些具体类的时候，可能会使orderPizza这段代码出问题，因此说orderPizza这段代码没有对修改关闭。<br>既然已经知道了哪些代码会改变，哪些不会，那么我们可以采用refactor中的一个技巧封装来对这段代码进行改变。<br>先把<code>if...else</code>这段代码从<code>orderPizza</code>这个函数中抽离。</p>
+<pre><code class="java">public class SimplePizzaFactory {
+    public Pizza createPizza(String type) {
+        Pizza pizza = null;
+        if(type.equals(&quot;cheese&quot;)) {
+            pizza = new CheesePizza();
+        }else if(types.equals(&quot;greek&quot;)){
+            pizza = new GreekPizza();
+        } else if(types.equals(&quot;pepperoni&quot;)){
+            pizza = new PepperoniPizza();
+        }
+        return pizza;
+    }
+}</code></pre>
+<p>这样<code>orederPizza</code>这一段代码就变成了：</p>
+<pre><code class="java">public class PizzaStore {
+    SimplePizzaFactory factory;
+    public PizzaStore(SimplePizzaFactory factory) {
+        this.factory = factory;
+    }
+    public Pizza orderPizza(String type) {
+        Pizza pizza;
+        pizza = factory.createPizza(type);
+        pizza.prepare();
+        pizza.bake();
+        pizza.cut();
+        pizza.box();
+        return pizza;
+    }
+}</code></pre>
+<p>这就是一个简单工厂类。整个过程其实是一个随着需求变化的重构的过程，涉及到了基本设计原则中的开放封闭原则，同时涉及到了重构中的一个技巧，封装函数。<br>很多地方并不把简单工厂模式看成是一个设计模式，而更像是一种变成习惯，但经常被使用。<br><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic_new/factory/simpleFact1.png" alt=""><br><img src="media/16036755818784.png" alt=""><br>现在考虑更进一步的情况，这家PizzaStore的开业获得了极大的成功，各个地区开始有连锁PizzaStore加盟，但每一家加盟店因为区域的不同从而导致Pizza风味的地区化差异。</p>
+<p>那么我们可能会有下面这种代码出现：</p>
+<pre><code class="java">NYPizzaFactory nyFactory = new NYPizzaFactory();
+PizzaStore nyStore = new PizzaStore(nyFactory);
+nyStore.orderPizza(&quot;veggie&quot;);
+
+ChicagoPizzaFactory chicagoFactory = new ChicagoFactory();
+PizzaStore chicgoStore = new PizzaStore(chicagoFactory);
+chicagoStore.orderPizza(&quot;veggie&quot;);</code></pre>
+<p>这是一种实现的方法。<br>在实际的这个Pizza加盟店这个例子中，我们可能发现，<code>PizzaStore</code>对pizza的<code>prepare(), bake(), cut(), box()</code>的流程没有控制，这可能导致PizzaSore丧失对它加盟店的质量控制。<br>现在你想在PizzaStore中建立一个框架，把其他加盟店和创建Pizza的功能捆绑在一起的同时又保持一定弹性。之前我们把createPizza放在PizzeStore类中，这样达到了捆绑的效果可是丧失了弹性。<br>其实这段话翻译过来就是，我们不想把createPizza放到新建的一个工厂类里面，而是想放回这个PizzaStore类，但是我们还想保持不同地区的加盟店能够作出不同地区特色的pizza。<br>首先我们把createPizza()放回到PizzaStore中，但是把它设置为抽象方法。</p>
+<pre><code class="java">public abstract class PizzaStore {
+    public Pizza orderPizza(String type) {
+        Pizza pizza;
+        pizza = createPizza(type);
+        pizza.prepare();
+        pizza.bake();
+        pizza.cut();
+        pizza.box();
+        return pizza;
+    }
+
+    abstract Pizza createPizza(String type);
+}</code></pre>
+<p><em>抽象类自己是不能实例化对象的，它必须要被继承才能被使用。通常在设计阶段就要确定是否要使用抽象类。<br>抽象类和接口类的区别：<br>在语法层面上 ：抽象类可以提供成员方法的实现细节，而接口中只能存在public abstaract方法；抽象类中的成员变量可以是各种类型，接口类只能是public static final；接口类中不能含有静态代码块和静态方法，抽象类中可以有；一个类只能继承一个抽象类但是可以实现多个接口类；<br>设计层面上：抽象类是对一种事物的抽象而接口类是对行为的抽象；抽象类作为很多子类的父类是一种模版式设计而接口是一种行为规范。</em><br>所以现在我们对拥有加盟店后的整体设计变成：有一个PizzaStore作为父类，每个子类都继承这个父类，但每个子类可以自行决定如何制造这个特色Pizza。这里用到了一个重构的技巧，叫做<strong>提炼继承类(Extract Hierarchy)</strong>。<br><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/blogPic_new/factory/factMethod1.png" alt=""><br>站在PizzaStore的orderPizza()的角度来看，此抽象方法是在PizzaStore内部定义的，但是是交由子类来具体实现的，orderPizza()对Pizza这个类做了很多事情，但是Pizza对象是抽象的，orderPizza()是并不知道实际参与的具体类是哪一个，这就是解耦(decouple)。<br>所以现在我们新开一个纽约加盟店中<code>createPizza</code>的代码是这样的：</p>
+<pre><code class="java">public class NYPizzaStore extends PizzaStore {
+    Pizza createPizza (String type) {
+        if (type.equals(&quot;cheese&quot;)) {
+            return new NYStyleCheesePizza();
+        } else if (type.equals(&quot;veggie&quot;)) {
+            return new NYStyleVeggiePizza();
+        } else if (type.equals(&quot;clam&quot;)) {
+            return new NYStyleClamPizza();
+        } else if (type.equals(&quot;pepperoni&quot;)) {
+            return new NYStylePepperoniPizza();
+        } else {
+            return null;
+        }
+    }
+}</code></pre>
 
         </div>
         <!-- .entry-content -->
