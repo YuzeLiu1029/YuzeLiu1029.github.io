@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yuzeliu1029.github.io/"/>
-  <updated>2020-10-26T08:14:44.039Z</updated>
+  <updated>2020-10-26T09:51:00.988Z</updated>
   <id>http://yuzeliu1029.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>cpp_design_pattern</title>
+    <link href="http://yuzeliu1029.github.io/2020/10/26/cpp-design-pattern/"/>
+    <id>http://yuzeliu1029.github.io/2020/10/26/cpp-design-pattern/</id>
+    <published>2020-10-26T09:50:01.000Z</published>
+    <updated>2020-10-26T09:51:00.988Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;创建型模式&quot;&gt;&lt;a href=&quot;#创建型模式&quot; class=&quot;headerlink&quot; title=&quot;创建型模式&quot;&gt;&lt;/a&gt;创建型模式&lt;/h2&gt;&lt;h3 id=&quot;简单工厂模式-Simple-Factory-Pattern&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>factory-pattern</title>
@@ -571,30 +595,6 @@ th{
           &lt;h1 id=&quot;Java-运行报错解决方法&quot;&gt;&lt;a href=&quot;#Java-运行报错解决方法&quot; class=&quot;headerlink&quot; title=&quot;Java 运行报错解决方法&quot;&gt;&lt;/a&gt;Java 运行报错解决方法&lt;/h1&gt;&lt;p&gt;Error:Maven Resources
         
       
-    
-    </summary>
-    
-      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="技术" scheme="http://yuzeliu1029.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="学习笔记" scheme="http://yuzeliu1029.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="tips" scheme="http://yuzeliu1029.github.io/tags/tips/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最近一些工作tips</title>
-    <link href="http://yuzeliu1029.github.io/2019/11/06/%E6%9C%80%E8%BF%91%E4%B8%80%E4%BA%9B%E5%B7%A5%E4%BD%9Ctips/"/>
-    <id>http://yuzeliu1029.github.io/2019/11/06/最近一些工作tips/</id>
-    <published>2019-11-06T02:31:19.000Z</published>
-    <updated>2020-03-14T05:34:06.326Z</updated>
-    
-    <summary type="html">
-    
-      Tips for work
     
     </summary>
     
