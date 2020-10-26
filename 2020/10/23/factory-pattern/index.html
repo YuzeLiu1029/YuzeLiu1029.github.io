@@ -568,7 +568,16 @@ pizza = chicagoStore.orderPizza(“cheese”);</code></pre>
         cheese = ingredientFactory.createCheese();
     }
 }</code></pre>
-<p>Pizza类不关心具体每一种原材料是什么，这个仅由我们使用哪一个工厂来决定，pizza类仅仅需要知道做pizza的各个步骤。</p>
+<p>我们来对比一下纽约的CheesePizza：</p>
+<pre><code class="java">public class NYStyleCheesePizza extends Pizza {
+    public NYStyleCheesePizza() {
+        name = “NY Style Sauce and Cheese Pizza”;
+        dough = “Thin Crust Dough”;
+        sauce = “Marinara Sauce”;
+        toppings.add(“Grated Reggiano Cheese”);
+    }
+}</code></pre>
+<p>通过上面纽约原材料工厂，我们可以制造出纽约风味的NYStyleCheesePizza；<br>Pizza类不关心具体每一种原材料是什么，这个仅由我们使用哪一个工厂来决定，pizza类仅仅需要知道做pizza的各个步骤。</p>
 <pre><code class="java">public class ClamPizza extends Pizza {
     PizzaIngredientFactory ingredientFactory;
     public ClamPizza(PizzaIngredientFactory ingredientFactory) {
@@ -619,7 +628,14 @@ pizza = chicagoStore.orderPizza(“cheese”);</code></pre>
         }
     }
 }</code></pre>
-<p>总结一下这次我们又做了啥：<br>我们建立了一个抽象的类：原料工厂类，这就是我们这个例子中的抽象工厂。这个抽象工厂定义了一系列的接口。</p>
+<p>总结一下这次我们又做了啥：<br>我们建立了一个抽象的类：原料工厂类，这就是我们这个例子中的抽象工厂。这个抽象工厂定义了一系列的接口。通过抽象工厂所提供的接口，我们可以创建出一个产品的家族，通过不同的组合和实现方式创造出不同的产品。<br>最后我们再来看一下order一个NYStyleCheesePizza需要几步：</p>
+<pre><code class="java">PizzaStore nyPizzaStore = new NYPizzaStore();
+nyPizzaStore.orderPizza(&quot;cheese&quot;);</code></pre>
+<p>在<code>orderPizza</code>中，我们调用了：</p>
+<pre><code class="java">Pizza pizza = createPizza(&quot;cheese&quot;);</code></pre>
+<p>在<code>createPizza</code>中，我们建立了纽约原料工厂，并用它来制作CheesePizza：</p>
+<pre><code class="java">Pizza pizza = new CheesePizza(nyIngredientFactory);</code></pre>
+<p>这样在Pizza的prepare()过程中，我们会使用nyIngredientFactory来创建各种原材料：<code>createDough()</code>, <code>createSauce()</code>, <code>createCheese()</code>, <code>createClam()</code>。<br>最后我们把Pizza <code>bake()</code>，<code>cut()</code>， <code>box()</code>然后return；<br>这个设计模式就是抽象工厂模式，我们利用抽象工厂创建了一个产品家族。抽象工厂允许客户使用抽象的接口来创建一组相关的产品，而不需要关心实际产出的具体产品是什么。<br><img src="https://cdn.jsdelivr.net/gh/YuzeLiu1029/cdn/img/blogpic/abstractFactory1.png" alt=""></p>
 
         </div>
         <!-- .entry-content -->
