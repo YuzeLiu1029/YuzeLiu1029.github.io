@@ -363,7 +363,7 @@
     pizza.prepare();
     pizza.bake();
     pizza.cut();
-    pizza.bake();
+    pizza.box();
     return pizza;
 }</code></pre>
 <p>当Pizza的种类变得复杂，新的种类不断增多，而有些过时的种类不再受欢迎的时候，这段代码会被反复拿出来做修改，增加或删除一些种类来适应不断变化的菜单，但这其实违背了开放封闭原则。<br>开放封闭原则：当软件需要变化时，应尽量通过扩展的方式来实现变化，而不是通过修改的方式来实现。如果实例化某些具体类的时候，可能会使orderPizza这段代码出问题，因此说orderPizza这段代码没有对修改关闭。<br>既然已经知道了哪些代码会改变，哪些不会，那么我们可以采用refactor中的一个技巧封装来对这段代码进行改变。<br>先把<code>if...else</code>这段代码从<code>orderPizza</code>这个函数中抽离。</p>
