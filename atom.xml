@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yuzeliu1029.github.io/"/>
-  <updated>2020-03-14T07:45:36.447Z</updated>
+  <updated>2020-10-26T01:10:12.499Z</updated>
   <id>http://yuzeliu1029.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>factory-pattern</title>
+    <link href="http://yuzeliu1029.github.io/2020/10/23/factory-pattern/"/>
+    <id>http://yuzeliu1029.github.io/2020/10/23/factory-pattern/</id>
+    <published>2020-10-23T14:47:31.000Z</published>
+    <updated>2020-10-26T01:10:12.499Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;工厂类-：从订购一个Pizza开始&quot;&gt;&lt;a href=&quot;#工厂类-：从订购一个Pizza开始&quot; class=&quot;headerlink&quot; title=&quot;工厂类 ：从订购一个Pizza开始&quot;&gt;&lt;/a&gt;工厂类
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="java" scheme="http://yuzeliu1029.github.io/tags/java/"/>
+    
+      <category term="Design Pattern" scheme="http://yuzeliu1029.github.io/tags/Design-Pattern/"/>
+    
+  </entry>
   
   <entry>
     <title>python_useful_command_notes</title>
@@ -578,26 +606,6 @@ th{
       <category term="学习笔记" scheme="http://yuzeliu1029.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
       <category term="tips" scheme="http://yuzeliu1029.github.io/tags/tips/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>纪念杂碎后院</title>
-    <link href="http://yuzeliu1029.github.io/2019/10/09/%E7%BA%AA%E5%BF%B5%E6%9D%82%E7%A2%8E%E5%90%8E%E9%99%A2/"/>
-    <id>http://yuzeliu1029.github.io/2019/10/09/纪念杂碎后院/</id>
-    <published>2019-10-09T15:34:22.000Z</published>
-    <updated>2020-03-14T05:34:06.327Z</updated>
-    
-    <summary type="html">
-    
-      随想
-    
-    </summary>
-    
-      <category term="随想" scheme="http://yuzeliu1029.github.io/categories/%E9%9A%8F%E6%83%B3/"/>
-    
-    
-      <category term="随想" scheme="http://yuzeliu1029.github.io/tags/%E9%9A%8F%E6%83%B3/"/>
     
   </entry>
   
