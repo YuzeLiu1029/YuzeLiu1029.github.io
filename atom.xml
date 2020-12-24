@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yuzeliu1029.github.io/"/>
-  <updated>2020-10-26T09:51:00.988Z</updated>
+  <updated>2020-12-24T08:24:45.125Z</updated>
   <id>http://yuzeliu1029.github.io/</id>
   
   <author>
@@ -17,11 +17,69 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>chrono_usage_tutorial</title>
+    <link href="http://yuzeliu1029.github.io/2020/12/24/chrono-usage-tutorial/"/>
+    <id>http://yuzeliu1029.github.io/2020/12/24/chrono-usage-tutorial/</id>
+    <published>2020-12-24T08:22:11.000Z</published>
+    <updated>2020-12-24T08:24:45.125Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;C++11使用chrono库，可以很容易的实现定时功能；&lt;/p&gt;
+&lt;p&gt;chrono库主要包含三种类型：时间间隔&lt;code&gt;duration&lt;/code&gt;，时钟&lt;code&gt;clocks&lt;/code&gt;和时间点&lt;code&gt;Time point&lt;/code&gt;。&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="tech" scheme="http://yuzeliu1029.github.io/tags/tech/"/>
+    
+      <category term="C++" scheme="http://yuzeliu1029.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>singleton-pattern</title>
+    <link href="http://yuzeliu1029.github.io/2020/10/28/singleton-pattern/"/>
+    <id>http://yuzeliu1029.github.io/2020/10/28/singleton-pattern/</id>
+    <published>2020-10-28T02:53:02.000Z</published>
+    <updated>2020-11-24T02:30:36.354Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;单例模式&quot;&gt;&lt;a href=&quot;#单例模式&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="java" scheme="http://yuzeliu1029.github.io/tags/java/"/>
+    
+      <category term="Design Pattern" scheme="http://yuzeliu1029.github.io/tags/Design-Pattern/"/>
+    
+  </entry>
+  
+  <entry>
     <title>cpp_design_pattern</title>
     <link href="http://yuzeliu1029.github.io/2020/10/26/cpp-design-pattern/"/>
     <id>http://yuzeliu1029.github.io/2020/10/26/cpp-design-pattern/</id>
     <published>2020-10-26T09:50:01.000Z</published>
-    <updated>2020-10-26T09:51:00.988Z</updated>
+    <updated>2020-11-24T02:30:36.362Z</updated>
     
     <summary type="html">
     
@@ -533,66 +591,6 @@ th{
         
         
           &lt;h1 id=&quot;Simple-GRPC-Java-Project-on-Eclipse&quot;&gt;&lt;a href=&quot;#Simple-GRPC-Java-Project-on-Eclipse&quot; class=&quot;headerlink&quot; title=&quot;Simple GRPC Java
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="技术" scheme="http://yuzeliu1029.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="学习笔记" scheme="http://yuzeliu1029.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="tips" scheme="http://yuzeliu1029.github.io/tags/tips/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PGSQL_JDBC_Learning_Notes</title>
-    <link href="http://yuzeliu1029.github.io/2019/11/21/JDBC-Learning-Notes/"/>
-    <id>http://yuzeliu1029.github.io/2019/11/21/JDBC-Learning-Notes/</id>
-    <published>2019-11-21T03:21:59.000Z</published>
-    <updated>2020-03-14T05:34:06.306Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;JDBC-API介绍&quot;&gt;&lt;a href=&quot;#JDBC-API介绍&quot; class=&quot;headerlink&quot; title=&quot;JDBC API介绍&quot;&gt;&lt;/a&gt;JDBC API介绍&lt;/h1&gt;&lt;h2 id=&quot;JDBC主要API简介&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="http://yuzeliu1029.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="技术" scheme="http://yuzeliu1029.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="学习笔记" scheme="http://yuzeliu1029.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="tips" scheme="http://yuzeliu1029.github.io/tags/tips/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>learning_tips</title>
-    <link href="http://yuzeliu1029.github.io/2019/11/14/learning-tips/"/>
-    <id>http://yuzeliu1029.github.io/2019/11/14/learning-tips/</id>
-    <published>2019-11-14T06:12:34.000Z</published>
-    <updated>2020-03-14T05:34:06.308Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Java-运行报错解决方法&quot;&gt;&lt;a href=&quot;#Java-运行报错解决方法&quot; class=&quot;headerlink&quot; title=&quot;Java 运行报错解决方法&quot;&gt;&lt;/a&gt;Java 运行报错解决方法&lt;/h1&gt;&lt;p&gt;Error:Maven Resources
         
       
     
